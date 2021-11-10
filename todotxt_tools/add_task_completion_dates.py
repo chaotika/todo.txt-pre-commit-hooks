@@ -15,8 +15,11 @@ def add_task_completion_dates(todotxt_filename):
     today = datetime.date.today()
 
     for task in todotxt.tasks:
-        if task.completion_date and not task.completion_date:
-            task.completion_date = today
+        if task.is_completed:
+            if not task.creation_date:
+                task.creation_date = today
+            if task.completion_date:
+                task.completion_date = today
 
     todotxt.save()
 

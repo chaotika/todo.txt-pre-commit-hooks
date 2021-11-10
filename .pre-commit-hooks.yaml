@@ -2,7 +2,9 @@
   name: add creation date to tasks of todo.txt format files when missing
   entry: todotxt-add-task-creation-dates
   language: python
+  files: todo.txt
 - id: todotxt-add-task-completion-dates
   name: add completion date to tasks of todo.txt format files when missing
   entry: todotxt-add-task-completion-dates
   language: python
+  files: todo.txt
