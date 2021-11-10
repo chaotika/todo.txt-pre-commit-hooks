@@ -1,0 +1,5 @@
+- id: todotxt-add-task-begin-dates
+  name: add begin date to tasks of todo.txt format files when missing
+  description: add begin date to tasks of todo.txt format files when missing
+  entry: todotxt-add-task-begin-dates
+  language: python
