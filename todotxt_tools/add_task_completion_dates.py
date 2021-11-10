@@ -6,7 +6,7 @@ from typing import Sequence
 import pytodotxt
 import datetime
 
-def add_task_begin_dates(todotxt_filename):
+def add_task_completion_dates(todotxt_filename):
     print(todotxt_filename)
 
     todotxt = pytodotxt.TodoTxt(todotxt_filename)
@@ -15,8 +15,8 @@ def add_task_begin_dates(todotxt_filename):
     today = datetime.date.today()
 
     for task in todotxt.tasks:
-        if not task.creation_date:
-            task.creation_date = today
+        if task.completion_date and not task.completion_date:
+            task.completion_date = today
 
     todotxt.save()
 
@@ -34,13 +34,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     changed = False
     for filename in args.filenames:
-        if add_task_begin_dates(filename):
+        if add_task_completion_dates(filename):
             changed = True
-    # return find_large_added_files(
-    #     args.filenames,
-    #     args.maxkb,
-    #     enforce_all=args.enforce_all,
-    # )
+
     if changed:
         return 1
     else:
