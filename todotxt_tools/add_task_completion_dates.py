@@ -7,7 +7,6 @@ import pytodotxt
 import datetime
 
 def add_task_completion_dates(todotxt_filename):
-    print(todotxt_filename)
 
     todotxt = pytodotxt.TodoTxt(todotxt_filename)
     todotxt.parse()

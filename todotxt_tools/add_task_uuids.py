@@ -4,18 +4,16 @@ from typing import Optional
 from typing import Sequence
 
 import pytodotxt
-import datetime
+import uuid
 
-def add_task_creation_dates(todotxt_filename):
+def add_task_uuids(todotxt_filename):
 
     todotxt = pytodotxt.TodoTxt(todotxt_filename)
     todotxt.parse()
 
-    today = datetime.date.today()
-
     for task in todotxt.tasks:
-        if not task.creation_date:
-            task.creation_date = today
+        if not 'uuid' in task.attributes:
+            task.add_attribute('uuid',uuid.uuid4())
 
     todotxt.save()
 
@@ -33,7 +31,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     changed = False
     for filename in args.filenames:
-        if add_task_creation_dates(filename):
+        if add_task_uuids(filename):
             changed = True
 
     if changed:

@@ -8,3 +8,8 @@
   entry: todotxt-add-task-completion-dates
   language: python
   files: ^todo\.txt$
+- id: todotxt-add-task-uuids
+  name: add uuid attribute to tasks of todo.txt format files when missing
+  entry: todotxt-add-task-uuids
+  language: python
+  files: ^todo\.txt$
