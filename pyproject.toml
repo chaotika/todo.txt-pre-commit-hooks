@@ -1,0 +1,38 @@
+
+[project]
+name = "todotxt_tools"
+description = "pre-commit hooks for todo.txt format files"
+authors = [
+    {name = "Markus Katharina Brechtel", email="mkb+todo.txt-tools@thengo.net"},
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.6"
+
+# Requirements: This is done differently by poetry!
+dependencies = [
+    "pytodotxt >= 1.2.0",
+]
+
+dynamic = ["version"]
+
+[project.urls]
+homepage = "https://github.com/chaotika/todo.txt-tools"
+#documentation = ""
+repository = "https://github.com/chaotika/todo.txt-tools"
+
+[build-system]
+requires = [
+    "setuptools >= 35.0.2",
+    "setuptools_scm >= 5.0.0"
+]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+todotxt-add-task-creation-dates = "todotxt_tools.add_task_creation_dates:main"
+todotxt-add-task-completion-dates = "todotxt_tools.add_task_completion_dates:main"
+todotxt-add-task-uuids = "todotxt_tools.add_task_uuids:main"
+todotxt-format-file = "todotxt_tools.format_file:main"
+
+[tool.setuptools_scm]
+write_to = "todotxt_tools/_version.py"
